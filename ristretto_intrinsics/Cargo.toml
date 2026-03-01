@@ -38,9 +38,11 @@ zip = { workspace = true, features = ["deflate"] }
 
 [target.'cfg(not(target_family = "wasm"))'.dependencies]
 console = { workspace = true }
+cpal = { workspace = true }
 dirs = { workspace = true }
 filetime = { workspace = true }
 libc = { workspace = true }
+midir = { workspace = true }
 os_info = { workspace = true }
 socket2 = { workspace = true }
 sysinfo = { workspace = true }
@@ -70,7 +72,31 @@ windows-sys = { workspace = true, features = [
 tokio = { workspace = true }
 
 [target.'cfg(all(target_family = "wasm", target_os = "unknown"))'.dependencies]
+js-sys = "0.3"
+wasm-bindgen = "0.2"
 wasm-bindgen-futures = { workspace = true }
+web-sys = { version = "0.3", features = [
+    "AudioBuffer",
+    "AudioBufferSourceNode",
+    "AudioContext",
+    "AudioContextOptions",
+    "AudioContextState",
+    "AudioDestinationNode",
+    "BaseAudioContext",
+    "GainNode",
+    "GainOptions",
+    "MidiAccess",
+    "MidiInput",
+    "MidiInputMap",
+    "MidiMessageEvent",
+    "MidiOptions",
+    "MidiOutput",
+    "MidiOutputMap",
+    "MidiPort",
+    "Navigator",
+    "Performance",
+    "Window",
+] }
 
 [dev-dependencies]
 ristretto_test_util = { path = "../ristretto_test_util", version = "0.31.0" }
